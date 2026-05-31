@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (in case you ever add tooling)
+node_modules/
+.cache/
+
+# Local previews
+.netlify/

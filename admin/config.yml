@@ -1,0 +1,46 @@
+# Decap CMS configuration for Joyous Living
+# Once deployed on Netlify with Identity + Git Gateway enabled,
+# Balaji can edit content at /admin/ — no code needed.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Where the CMS will upload images if you add any
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Show a live preview while editing (optional)
+site_url: https://www.joyousliving.org
+display_url: https://www.joyousliving.org
+logo_url: https://www.joyousliving.org/favicon.ico
+
+collections:
+  # ----- Q&A items -----
+  - name: "qa"
+    label: "Q&A"
+    files:
+      - file: "content/qa.json"
+        label: "Questions & Answers"
+        name: "qa"
+        description: "Add, edit, or remove the questions shown in the Q&A section of the homepage."
+        fields:
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - label: "Question"
+                name: "question"
+                widget: "string"
+                hint: "The visitor's question — keep it concise."
+              - label: "Answer"
+                name: "answer"
+                widget: "text"
+                hint: "Your response. Plain text — line breaks are preserved."
+              - label: "Author"
+                name: "author"
+                widget: "string"
+                default: "Balaji"
+                required: false
+                hint: "Who's answering. Defaults to Balaji."
